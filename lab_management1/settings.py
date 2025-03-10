@@ -27,7 +27,7 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = ['dashboard.onrender.com']
+ALLOWED_HOSTS = ['vadaran.onrender.com', '127.0.0.1', 'localhost']
 
 PORT = os.environ.get('PORT', '8000')
 
@@ -83,7 +83,7 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'))
+    'default': dj_database_url.config(default=os.getenv('sqlite:///db.sqlite3'))
 }
 
 
