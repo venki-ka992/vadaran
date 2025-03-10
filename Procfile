@@ -1,2 +1,1 @@
-web: gunicorn lab_management1.wsgi --log-file -
- 
+web: gunicorn dashboard.wsgi:application

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^3+^ej=kdtx*oi_!6_ylj&xu@3*fg)6mir8^52f-zltb)$yjw&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dashboard.render.com']
+ALLOWED_HOSTS = ['dashboard.onrender.com']
 
 
 # Application definition
@@ -75,8 +75,11 @@ WSGI_APPLICATION = 'lab_management1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES ={
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+import os
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'))
 }
 
 
