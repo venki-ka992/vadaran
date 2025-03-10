@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-^3+^ej=kdtx*oi_!6_ylj&xu@3*fg)6mir8^52f-zltb)$yjw&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+import os
+
 ALLOWED_HOSTS = ['dashboard.onrender.com']
+
+PORT = os.environ.get('PORT', '8000')
 
 
 # Application definition
@@ -113,12 +117,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+import os
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
 
 # WhiteNoise configuration
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
