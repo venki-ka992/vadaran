@@ -82,9 +82,16 @@ WSGI_APPLICATION = 'lab_management1.wsgi.application'
 import os
 import dj_database_url
 
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://vadaran_db_user:R4w79xbehgCenrUotQP6AVz7mzzYRJAF@dpg-cv7t4bin91rc739f5r20-a.oregon-postgres.render.com/vadaran_db")
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('sqlite:///db.sqlite3'))
+    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 }
+
+# Ensure ENGINE is set
+if not DATABASES['default'].get('ENGINE'):
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+
 
 
 # Password validation

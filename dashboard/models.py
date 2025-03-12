@@ -85,4 +85,22 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.order_id} - {self.customer_name}"
 
+class Employee(models.Model):
+    EMPLOYEE_ROLES = [
+        ('Manager', 'Manager'),
+        ('Technician', 'Technician'),
+        ('Laborer', 'Laborer'),
+        ('Supervisor', 'Supervisor'),
+    ]
+
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=50, choices=EMPLOYEE_ROLES)
+    hire_date = models.DateField()
+    contact_number = models.CharField(max_length=15, unique=True)
+    email = models.EmailField(unique=True)
+    salary = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.name} - {self.role}"
+
 

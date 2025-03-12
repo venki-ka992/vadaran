@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PlantVariety, CultureBatch, Equipment, Inventory, Order
+from .models import PlantVariety, CultureBatch, Equipment, Inventory, Order,Employee
 
 # Unregister the model first if it's already registered
 if admin.site.is_registered(Inventory):
@@ -38,6 +38,14 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('order_id', 'customer_name', 'plant_type')
     list_filter = ('status', 'order_date')
     ordering = ('-order_date',)
+
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role', 'hire_date', 'contact_number', 'email', 'salary')
+    list_filter = ('role', 'hire_date')
+    search_fields = ('name', 'contact_number', 'email')
+
+
 
     
 
