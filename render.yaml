@@ -1,0 +1,20 @@
+# Exported from Render on 2025-03-12T07:48:19Z
+services:
+- type: web
+  name: vadaran
+  runtime: python
+  repo: https://github.com/venki-ka992/vadaran
+  plan: free
+  envVars:
+  - key: DJANGO_SETTINGS_MODULE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: ALLOWED_HOSTS
+    sync: false
+  - key: DEBUG
+    sync: false
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn lab_management1.wsgi:application
+version: "1"
