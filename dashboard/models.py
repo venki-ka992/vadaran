@@ -11,7 +11,10 @@ class CultureBatch(models.Model):
     start_date = models.DateField()
     expected_harvest_date = models.DateField()
     No_of_bottles = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4db433cbda1766337f0fa3f9df9837b846c01503
 
     
     STATUS_CHOICES = [
