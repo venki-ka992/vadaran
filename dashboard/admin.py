@@ -13,7 +13,7 @@ class PlantVarietyAdmin(admin.ModelAdmin):
 
 @admin.register(CultureBatch)
 class CultureBatchAdmin(admin.ModelAdmin):
-    list_display = ('batch_id', 'plant_variety', 'start_date', 'expected_harvest_date', 'status')
+    list_display = ('batch_id', 'plant_variety', 'start_date', 'expected_harvest_date','No_of_bottles','status')
     search_fields = ('batch_id', 'plant_variety__name')  
     list_filter = ('status', 'plant_variety')  
     ordering = ('-start_date',)  
