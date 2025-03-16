@@ -10,6 +10,9 @@ class CultureBatch(models.Model):
     plant_variety = models.ForeignKey(PlantVariety, on_delete=models.CASCADE)
     start_date = models.DateField()
     expected_harvest_date = models.DateField()
+    No_of_Bottles = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+
     
     STATUS_CHOICES = [
         ('Incubation', 'Incubation'),
